@@ -21,6 +21,9 @@ struct Home: View {
     /// View Properties
     @State private var addCategory: Bool = false
     @State private var categoryTitle: String = ""
+    @State private var requestedCategory: NoteCategory?
+    @State private var deleteRequest: Bool = false
+    @State private var renameRequest: Bool = false
     
     var body: some View {
         NavigationSplitView {
@@ -35,11 +38,24 @@ struct Home: View {
                 
                 /// User Created Categories
                 Section {
-                    ForEach(categories) {
-                        Text($0.categoryTitle)
-                            .tag($0.categoryTitle)
-                            .foregroundStyle(selectedTag == $0.categoryTitle ? Color.primary : .gray)
-                            /// Some
+                    ForEach(categories) { category in
+                        Text(category.categoryTitle)
+                            .tag(category.categoryTitle)
+                            .foregroundStyle(selectedTag == category.categoryTitle ? Color.primary : .gray)
+                            /// Some Basic Editing Options
+                            .contextMenu {
+                                Button("Rename") {
+                                    /// Placing the Already Having title in the TextField
+                                    categoryTitle = category.categoryTitle
+                                    requestedCategory = category
+                                    renameRequest = true
+                                }
+                                
+                                Button("Delete") {
+                                    requestedCategory = category
+                                    deleteRequest = true
+                                }
+                            }
                     }
                 } header: {
                     HStack(spacing: 10) {
@@ -57,6 +73,7 @@ struct Home: View {
             
         }
         .navigationTitle(selectedTag ?? "Notes")
+        /// Adding Category Alert
         .alert("Add Category", isPresented: $addCategory) {
             TextField("Work", text: $categoryTitle)
             
@@ -72,6 +89,40 @@ struct Home: View {
                 
             }
             
+        }
+        /// Rename Alert
+        .alert("Rename Category", isPresented: $renameRequest) {
+            TextField("Work", text: $categoryTitle)
+            
+            Button("Cancel", role: .cancel) {
+                categoryTitle = ""
+                requestedCategory = nil
+            }
+            
+            Button("Rename") {
+                /// Adding New Cateogry to Swift Data
+                if let requestedCategory {
+                    requestedCategory.categoryTitle = categoryTitle
+                    categoryTitle = ""
+                    self.requestedCategory = nil
+                }
+            }
+        }
+        /// Delete Alert
+        .alert("Delete Cateogry", isPresented: $deleteRequest) {
+            Button("Cancel", role: .cancel) {
+                categoryTitle = ""
+                requestedCategory = nil
+            }
+            
+            Button("Rename") {
+                /// Adding New Cateogry to Swift Data
+                if let requestedCategory {
+                    requestedCategory.categoryTitle = categoryTitle
+                    categoryTitle = ""
+                    self.requestedCategory = nil
+                }
+            }
         }
     }
 }
