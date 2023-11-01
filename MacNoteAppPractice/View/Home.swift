@@ -15,6 +15,9 @@ struct Home: View {
     /// Querying All Categories
     @Query(animation: .snappy) private var categories: [NoteCategory]
     
+    /// Model Context
+    @Environment(\.modelContext) private var context
+    
     /// View Properties
     @State private var addCategory: Bool = false
     @State private var categoryTitle: String = ""
@@ -61,7 +64,10 @@ struct Home: View {
             }
             
             Button("Add") {
-                /// Adding New Category
+                /// Adding New Category to Swift Data
+                let category = NoteCategory(categoryTitle: categoryTitle)
+                context.insert(category)
+                categoryTitle = ""
                 
             }
             
