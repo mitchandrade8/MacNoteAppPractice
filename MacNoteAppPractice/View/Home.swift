@@ -39,6 +39,7 @@ struct Home: View {
                         Text($0.categoryTitle)
                             .tag($0.categoryTitle)
                             .foregroundStyle(selectedTag == $0.categoryTitle ? Color.primary : .gray)
+                            /// Some
                     }
                 } header: {
                     HStack(spacing: 10) {
@@ -57,7 +58,7 @@ struct Home: View {
         }
         .navigationTitle(selectedTag ?? "Notes")
         .alert("Add Category", isPresented: $addCategory) {
-            TextField("Record Video", text: $categoryTitle)
+            TextField("Work", text: $categoryTitle)
             
             Button("Cancel", role: .cancel) {
                 categoryTitle = ""
