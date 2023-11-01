@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct Home: View {
+    /// List Selection (Going to use this as a Tab to filter the selected category notes)
+    @State private var selectedTag: String?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationSplitView {
+            List(selection: $selectedTag) {
+                
+            }
+        } detail: {
+            
+        }
     }
 }
 
 #Preview {
-    Home()
+    ContentView()
 }

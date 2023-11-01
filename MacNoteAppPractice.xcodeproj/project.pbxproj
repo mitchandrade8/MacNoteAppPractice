@@ -13,6 +13,7 @@
 		74D2419E2AF1DDA70088EB27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D2419D2AF1DDA70088EB27 /* Preview Assets.xcassets */; };
 		74D241A72AF1DF0B0088EB27 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D241A62AF1DF0B0088EB27 /* Note.swift */; };
 		74D241A92AF1DF540088EB27 /* NoteCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D241A82AF1DF540088EB27 /* NoteCategory.swift */; };
+		74D241AC2AF1E1710088EB27 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D241AB2AF1E1710088EB27 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		74D2419F2AF1DDA70088EB27 /* MacNoteAppPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacNoteAppPractice.entitlements; sourceTree = "<group>"; };
 		74D241A62AF1DF0B0088EB27 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		74D241A82AF1DF540088EB27 /* NoteCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCategory.swift; sourceTree = "<group>"; };
+		74D241AB2AF1E1710088EB27 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				74D241A52AF1DEFE0088EB27 /* Model */,
+				74D241AA2AF1E1590088EB27 /* View */,
 				74D241962AF1DDA60088EB27 /* MacNoteAppPracticeApp.swift */,
 				74D241982AF1DDA60088EB27 /* ContentView.swift */,
 				74D2419A2AF1DDA70088EB27 /* Assets.xcassets */,
@@ -81,6 +84,14 @@
 				74D241A82AF1DF540088EB27 /* NoteCategory.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		74D241AA2AF1E1590088EB27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74D241AB2AF1E1710088EB27 /* Home.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 			files = (
 				74D241992AF1DDA60088EB27 /* ContentView.swift in Sources */,
 				74D241A92AF1DF540088EB27 /* NoteCategory.swift in Sources */,
+				74D241AC2AF1E1710088EB27 /* Home.swift in Sources */,
 				74D241972AF1DDA60088EB27 /* MacNoteAppPracticeApp.swift in Sources */,
 				74D241A72AF1DF0B0088EB27 /* Note.swift in Sources */,
 			);
