@@ -14,11 +14,16 @@ struct Home: View {
     var body: some View {
         NavigationSplitView {
             List(selection: $selectedTag) {
+                Text("All Notes")
+                    .tag("All Notes")
                 
+                Text("Favorites")
+                    .tag("Favorites")
             }
         } detail: {
             
         }
+        .navigationTitle(selectedTag ?? "Notes")
     }
 }
 
